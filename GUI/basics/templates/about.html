@@ -1,0 +1,132 @@
+
+{% block content %}
+<html>
+  <head>
+    <style>
+      body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(228, 171, 142);
+    background-image: url('basics\\templates\\backimage.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background 0.5s ease;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    font-family: 'Lobster', cursive;
+}
+
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: rgb(52, 179, 29);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: slideIn 1s ease-in-out;
+    font-weight: bold;
+    transition: background-color 0.5s ease;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+}
+
+input:hover {
+    border-color: #86e90e;
+}
+
+button {
+    background-color: rgb(4, 72, 51);
+    color: #fff;
+    margin: 20px 0; /* Adjusted margin for better spacing */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: rgb(7, 8, 8);
+}
+
+h3 {
+    color: #101010;
+    margin-top: 20px;
+    transition: color 0.3s ease;
+}
+
+p.error-message {
+    color: red;
+    transition: color 0.3s ease;
+}
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&family=Lobster&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <h1>Prediction of Different Patient Treatment types  using Random Forest </h1>
+    <form method="post">
+      {% csrf_token %}
+      <label for="HAEMATOCRIT">Enter the patient haematocrit valve:</label>
+      <input type="text" id="HAEMATOCRIT" name="HAEMATOCRIT" />
+
+      <label for="HAEMOGLOBINS">HAEMOGLOBINS:</label>
+      <input type="text" id="HAEMOGLOBINS" name="HAEMOGLOBINS" />
+
+      <label for="ERYTHROCYTE">ERYTHROCYTE:</label>
+      <input type="text" id="ERYTHROCYTE" name="ERYTHROCYTE" />
+
+      <label for="LEUCOCYTE">LEUCOCYTE:</label>
+      <input type="text" id="LEUCOCYTE" name="LEUCOCYTE" />
+
+      <label for="THROMBOCYTE">THROMBOCYTE:</label>
+      <input type="text" id="THROMBOCYTE" name="THROMBOCYTE" />
+
+      <label for="MCH">MCH:</label>
+      <input type="text" id="MCH" name="MCH" />
+
+      <label for="MCHC">MCHC:</label>
+      <input type="text" id="MCHC" name="MCHC" />
+
+      <label for="MCV">MCV:</label>
+      <input type="text" id="MCV" name="MCV" />
+
+      <label for="AGE">Age:</label>
+      <input type="text" id="AGE" name="AGE" />
+
+      <label for="SEX">Sex:</label>
+      <input type="radio" id="male" name="SEX" value="1">
+      <label for="male">Male</label>
+      <input type="radio" id="female" name="SEX" value="0">
+      <label for="female">Female</label>
+
+      <button type="submit" name="submitbutton">Submit</button>
+
+      <h3>SOURCE: {{ result_text }}</h3>
+
+      {% if error_message %}
+        <p class="error-message">{{ error_message }}</p>
+      {% endif %}
+    </form>
+  </body>
+</html>
+{% endblock content %}

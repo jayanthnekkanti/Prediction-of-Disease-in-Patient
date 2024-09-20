@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+{% block content %}
+<h1 style="color:red;">Exam Marks Prediction Using Machine Learning</h1>
+<marquee width="100%" direction="right" height="50px" bgcolor="pink">Exam Marks Prediction Using Machine Learning</marquee>
+<form method="POST">
+    {% csrf_token %}
+<table>
+    <tr>
+        <td>
+            Enter the Marks
+        </td>
+        <td>
+            <input type="text" name="textmarks">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Enter the Age
+        </td>
+        <td>
+            <input type="text" name="textage">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Enter the internet(0/1)
+        </td>
+        <td>
+            <input type="text" name="textinternet">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button  type="submit" class="btn btn-primary" name="buttonpredict">Predict</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {{result}}
+        </td>
+    </tr>
+</table>
+</form>
+{% endblock %}

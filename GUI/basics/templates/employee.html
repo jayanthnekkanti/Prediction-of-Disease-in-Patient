@@ -1,0 +1,32 @@
+<html>
+   <h1>Register Employee</h1>
+   <form method="Post">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td>
+                Email ID
+            </td>
+            <td>
+                <input type="text" name="textemailid">
+            </td>
+            </tr>
+            <tr>
+                <td>
+                    mobilenumber
+                </td>
+                <td>
+                    <input type="text" name="textmobileno">
+                </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit" name="buttonsubmit">submit</button>
+                    </td>
+                    <td>
+                        {{result }}
+                    </td>
+                </tr>
+    </table>
+    </form>
+</html>
